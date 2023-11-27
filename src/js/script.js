@@ -5,7 +5,7 @@ const botaoDeBusca = document.querySelector(".btn-busca");
 botaoDeBusca.addEventListener("click", async () => {
     const cidade = document.getElementById("input-busca").value;
     
-    if(!cidade) return;
+    if(!cidade) return alert("Por favor, digite o nome de uma cidade.");
 
     const dados = await buscarDadosDaCidade(cidade);
     
@@ -17,7 +17,7 @@ async function buscarDadosDaCidade(cidade) {
 
     const response = await fetch(apiUrl);
 
-    if (response.status !== 200) return;
+    if (response.status !== 200) return alert("Por favor, retire o acento ou verifique se o nome está correto!");
 
     const dados = response.json();
 
